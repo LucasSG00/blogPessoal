@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { User } from './../model/User';
+import { Tema } from './../model/Tema';
+import { TemaService } from './../service/tema.service';
+import { PostagemService } from './../service/postagem.service';
+import { Postagem } from './../model/Postagem';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment.prod';
-import { Postagem } from '../model/Postagem';
-import { Tema } from '../model/Tema';
-import { User } from '../model/User';
+import { environment } from './../../environments/environment.prod';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
-import { PostagemService } from '../service/postagem.service';
-import { TemaService } from '../service/tema.service';
 
 @Component({
   selector: 'app-inicio',
@@ -16,52 +16,54 @@ import { TemaService } from '../service/tema.service';
 export class InicioComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
-  listaPostagem: Postagem[]
-  
+  listaPostagens: Postagem[]
+
   tema: Tema = new Tema()
   listaTemas: Tema[]
   idTema: number
 
   user: User = new User()
   idUser = environment.id
-  
+
   constructor(
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
+    window.scroll(0,0)
+
     if(environment.token == ''){
       this.router.navigate(['/entrar'])
     }
 
-    this.getAllTema()
+    this.getAllTemas()
     this.getAllPostagem()
+    this.findByIdUser()
   }
 
-  getAllTema(){
+  getAllTemas(){
     this.temaService.getAllTema().subscribe((resp: Tema[]) => {
       this.listaTemas = resp
     })
   }
 
   findByIdTema(){
-    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) => {
-      return this.tema = resp
-    })
-  }
-
-  findByIdUSer(){
-    this.authService.getByIdUser(this.idUser).subscribe((resp: User) => {
-      this.user = resp
+    this.temaService.getByIdTema(this.idTema).subscribe((resp: Tema) =>{
+      this.tema = resp
     })
   }
 
   getAllPostagem(){
     this.postagemService.getAllPostagem().subscribe((resp: Postagem[]) => {
-      this.listaPostagem = resp
+      this.listaPostagens = resp
+    })
+  }
+
+  findByIdUser(){
+    this.postagemService.getByIdUser(this.idUser).subscribe((resp: User) => {
+      this.user = resp
     })
   }
 
@@ -71,14 +73,13 @@ export class InicioComponent implements OnInit {
 
     this.user.id = this.idUser
     this.postagem.usuario = this.user
-    
+
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
-      alert('Postagem realizada com sucesso')
+      alert('Postagem realizada com sucesso!')
       this.postagem = new Postagem()
       this.getAllPostagem()
     })
-    
   }
 
 }

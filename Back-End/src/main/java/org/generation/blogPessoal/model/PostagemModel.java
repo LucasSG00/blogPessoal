@@ -22,7 +22,7 @@ public class PostagemModel {
 	// Atributos 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	
 	@NotNull
 	@Size(min = 5, max = 100)
@@ -42,46 +42,61 @@ public class PostagemModel {
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Usuario usuario;
+
 	
 	
-	// Getters e Setters
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(Long id) {
+
+	public void setId(long id) {
 		this.id = id;
 	}
+
 	public String getTitulo() {
 		return titulo;
 	}
+
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
+
 	public String getTexto() {
 		return texto;
 	}
+
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
+
 	public Date getDate() {
 		return date;
 	}
+
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
+
 	public Tema getTema() {
 		return tema;
 	}
+
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	
+	// Getters e Setters
+	
+	
 	
 	
 

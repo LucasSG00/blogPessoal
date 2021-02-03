@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/postagens")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin("*")
 public class PostagemController {
 	
 	@Autowired
@@ -31,13 +31,13 @@ public class PostagemController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<PostagemModel> FindById(@PathVariable Long id){
+	public ResponseEntity<PostagemModel> GetById(@PathVariable long id){
 		return repository.findById(id)
 				.map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/{titulo}")
+	@GetMapping("/titulo/{titulo}")
 	public ResponseEntity<List<PostagemModel>> GetByIdTitulo(@PathVariable String titulo){
 		return ResponseEntity.ok(repository.findAllByTituloContainingIgnoreCase(titulo));
 	}

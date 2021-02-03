@@ -42,6 +42,8 @@ export class PostagemEditComponent implements OnInit {
   findByIdPostagem(id: number) {
     this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) => {
       this.postagem = resp
+      console.log(this.postagem);
+      
     })
   }
 

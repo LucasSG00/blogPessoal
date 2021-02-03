@@ -6,7 +6,6 @@ import { Postagem } from './../model/Postagem';
 import { Router } from '@angular/router';
 import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-inicio',
@@ -28,7 +27,7 @@ export class InicioComponent implements OnInit {
   constructor(
     private router: Router,
     private postagemService: PostagemService,
-    private temaService: TemaService,
+    private temaService: TemaService
   ) { }
 
   ngOnInit() {
@@ -39,8 +38,8 @@ export class InicioComponent implements OnInit {
     }
 
     this.getAllTemas()
-    this.getAllPostagem()
-    this.findByIdUser()
+    this.getAllPostagem()   
+    
   }
 
   getAllTemas(){
@@ -64,6 +63,8 @@ export class InicioComponent implements OnInit {
   findByIdUser(){
     this.postagemService.getByIdUser(this.idUser).subscribe((resp: User) => {
       this.user = resp
+      console.log(this.user);
+      
     })
   }
 

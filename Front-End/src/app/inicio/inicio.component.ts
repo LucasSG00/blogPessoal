@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { environment } from './../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { AlertasService } from '../service/alertas.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-inicio',
@@ -34,6 +35,7 @@ export class InicioComponent implements OnInit {
     private router: Router,
     private postagemService: PostagemService,
     private temaService: TemaService,
+    public authService: AuthService,
     private alertas: AlertasService
   ) { }
 

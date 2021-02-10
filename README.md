@@ -1,27 +1,14 @@
 # BlogPessoal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+O projeto consiste em um blog para que as pessoas possam se cadastrar e publicarem cards de acordo com os temas inseridos pelos administradores, na qual podem ver todas as publicações, as que eles postaram e poderem ver postagens só por determinado tema.
 
-## Development server
+# Screenshots <img src="https://i.imgur.com/HEtzLR1.png">
+<img src="https://i.imgur.com/IFTVDlj.png">
+<img src="https://i.imgur.com/X310BSB.png">
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+<img src="https://i.imgur.com/xZwkQN0.png">
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+<img src="https://i.imgur.com/rB6F2t5.png">
+<img src="https://i.imgur.com/GFwThQS.png">
+<img src="https://i.imgur.com/3bcGhbr.png">
+<img src="https://i.imgur.com/68uj8Pw.png">
